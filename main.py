@@ -1,37 +1,17 @@
 import json
 
 def display_data():
-    """
-    Reads data from a JSON file and prints the name, age, and city for each entry.
-
-    The JSON file should be named 'data.json' and located in the same directory as the script.
-    Each entry in the JSON file should be a dictionary with the keys 'name', 'age', and 'city'.
-
-    Example JSON structure:
-    [
-        {
-            "name": "John Doe",
-            "age": 30,
-            "city": "New York"
-        },
-        {
-            "name": "Jane Smith",
-            "age": 25,
-            "city": "Los Angeles"
-        }
-    ]
-
-    Raises:
-        FileNotFoundError: If the 'data.json' file does not exist.
-        json.JSONDecodeError: If the file is not a valid JSON.
-    """
-    with open('data.json', 'r') as file:
-        data = json.load(file)
-        for entry in data:
-            print(f"Name: {entry['name']}")
-            print(f"Age: {entry['age']}")
-            print(f"City: {entry['city']}")
-            print('---')
+    try:
+        with open('data.json', 'r') as file:
+            data = json.load(file)
+            for entry in data:
+                print(f"First Name: {entry['first_name']}")
+                print(f"Last Name: {entry['last_name']}")
+                print(f"Age: {entry['age']}")
+                print(f"City: {entry['city']}")
+                print('---')
+    except FileNotFoundError:
+        print("No data found. Please add some data first.")
 
 def add_data(data):
     """
@@ -54,23 +34,13 @@ def add_data(data):
         json.dump(old_data, file, indent=4)
 
 def enter_data():
-    """
-    Prompts the user to enter their name, age, and city, then stores this information in a dictionary
-    and passes it to the add_data function.
-
-    Inputs:
-    - name (str): The user's name.
-    - age (str): The user's age.
-    - city (str): The user's city.
-
-    Returns:
-    None
-    """
-    name = input("Enter name: ")
+    first_name = input("Enter first name: ")
+    last_name = input("Enter last name: ")
     age = input("Enter age: ")
     city = input("Enter city: ")
     data = {
-        'name': name,
+        'first_name': first_name,
+        'last_name': last_name,
         'age': age,
         'city': city
     }
