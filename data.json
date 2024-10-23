@@ -1,5 +1,22 @@
-{
-    "name": "John Doe",
-    "age": 30,
-    "city": "New York"
-}
+[
+    {
+        "name": "John Doe",
+        "age": 30,
+        "city": "New York"
+    },
+    {
+        "name": "Jane Doe",
+        "age": 25,
+        "city": "Chicago"
+    },
+    {
+        "name": "Captain",
+        "age": "America",
+        "city": "LA"
+    },
+    {
+        "name": "Iron",
+        "age": "Man",
+        "city": "Chicago"
+    }
+]
