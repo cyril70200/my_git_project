@@ -1,6 +1,30 @@
 import json
 
 def display_data():
+    """
+    Reads data from a JSON file and prints the name, age, and city for each entry.
+
+    The JSON file should be named 'data.json' and located in the same directory as the script.
+    Each entry in the JSON file should be a dictionary with the keys 'name', 'age', and 'city'.
+
+    Example JSON structure:
+    [
+        {
+            "name": "John Doe",
+            "age": 30,
+            "city": "New York"
+        },
+        {
+            "name": "Jane Smith",
+            "age": 25,
+            "city": "Los Angeles"
+        }
+    ]
+
+    Raises:
+        FileNotFoundError: If the 'data.json' file does not exist.
+        json.JSONDecodeError: If the file is not a valid JSON.
+    """
     with open('data.json', 'r') as file:
         data = json.load(file)
         for entry in data:
@@ -10,6 +34,19 @@ def display_data():
             print('---')
 
 def add_data(data):
+    """
+    Adds new data to an existing JSON file.
+
+    This function reads the current contents of 'data.json', appends the new data to it,
+    and then writes the updated data back to 'data.json'.
+
+    Args:
+        data (dict): The new data to be added to the JSON file.
+
+    Raises:
+        FileNotFoundError: If 'data.json' does not exist.
+        json.JSONDecodeError: If 'data.json' contains invalid JSON.
+    """
     with open('data.json', 'r') as file:
         old_data = json.load(file)
     old_data.append(data)
@@ -17,6 +54,18 @@ def add_data(data):
         json.dump(old_data, file, indent=4)
 
 def enter_data():
+    """
+    Prompts the user to enter their name, age, and city, then stores this information in a dictionary
+    and passes it to the add_data function.
+
+    Inputs:
+    - name (str): The user's name.
+    - age (str): The user's age.
+    - city (str): The user's city.
+
+    Returns:
+    None
+    """
     name = input("Enter name: ")
     age = input("Enter age: ")
     city = input("Enter city: ")
@@ -28,6 +77,21 @@ def enter_data():
     add_data(data)
 
 def remove_entry_by_name():
+    """
+    Prompts the user to enter the name of an entry to remove from a JSON file.
+    The function performs the following steps:
+    1. Prompts the user to input the name of the entry they want to remove.
+    2. Reads the data from 'data.json'.
+    3. Searches for entries that match the given name (case-insensitive).
+    4. If no matching entries are found, informs the user and exits.
+    5. Displays the matching entries to the user.
+    6. Prompts the user to select the entry they want to remove by entering a number.
+    7. Removes the selected entry from the data.
+    8. Writes the updated data back to 'data.json'.
+    9. Informs the user of the successful removal or any errors encountered.
+    Raises:
+        ValueError: If the user input for selecting an entry is not a valid number.
+    """
     name = input("Enter the name of the entry you want to remove: ")
     
     with open('data.json', 'r') as file:

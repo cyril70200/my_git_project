@@ -1,12 +1,3 @@
-# Dummy Project
-
-This is a dummy project to get familiar with GitHub and Visual Studio Code. The project uses a Python environment to read and display data from a JSON file.
-
-## Project Structure
- ├── README.md 
- ├── data.json 
- └── main.py
-
 
 ## Requirements
 
@@ -16,8 +7,8 @@ This is a dummy project to get familiar with GitHub and Visual Studio Code. The 
 
 1. Clone the repository:
     ```sh
-    git clone git push -u origin main
-    cd dummy-project
+    git clone https://github.com/cyril70200/my_git_project.git
+    cd my_git_project
     ```
 
 2. Create a virtual environment:
@@ -42,7 +33,7 @@ This is a dummy project to get familiar with GitHub and Visual Studio Code. The 
 
 ## Usage
 
-1. Add your data to the `data.json` file. Example:
+1. Add your data to the  file. Example:
     ```json
     {
         "name": "John Doe",
@@ -50,12 +41,3 @@ This is a dummy project to get familiar with GitHub and Visual Studio Code. The 
         "city": "New York"
     }
     ```
-
-2. Run the `main.py` script to display the data:
-    ```sh
-    python main.py
-    ```
-
-## License
-
-This project is licensed under the MIT License.
