@@ -16,7 +16,7 @@ This is a dummy project to get familiar with GitHub and Visual Studio Code. The 
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/dummy-project.git
+    git clone git push -u origin main
     cd dummy-project
     ```
 
