@@ -52,7 +52,7 @@ def remove_entry_by_name():
     The function performs the following steps:
     1. Prompts the user to input the name of the entry they want to remove.
     2. Reads the data from 'data.json'.
-    3. Searches for entries that match the given name (case-insensitive).
+    3. Searches for entries that match the given name (case-insensitive) in both first_name and last_name.
     4. If no matching entries are found, informs the user and exits.
     5. Displays the matching entries to the user.
     6. Prompts the user to select the entry they want to remove by entering a number.
@@ -67,7 +67,7 @@ def remove_entry_by_name():
     with open('data.json', 'r') as file:
         data = json.load(file)
     
-    matching_entries = [entry for entry in data if name.lower() in entry['name'].lower()]
+    matching_entries = [entry for entry in data if name.lower() in entry['first_name'].lower() or name.lower() in entry['last_name'].lower()]
     
     if not matching_entries:
         print("No matching entries found.")
@@ -75,7 +75,7 @@ def remove_entry_by_name():
     
     print("Matching entries:")
     for i, entry in enumerate(matching_entries, start=1):
-        print(f"{i}. Name: {entry['name']}, Age: {entry['age']}, City: {entry['city']}")
+        print(f"{i}. First Name: {entry['first_name']}, Last Name: {entry['last_name']}, Age: {entry['age']}, City: {entry['city']}")
     
     try:
         choice = int(input("Enter the number of the entry you want to remove: "))
@@ -92,4 +92,5 @@ def remove_entry_by_name():
 
 if __name__ == "__main__":
     display_data()
+    enter_data()
     remove_entry_by_name()

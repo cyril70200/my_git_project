@@ -6,15 +6,15 @@
         "city": "New York"
     },
     {
-        "first_name": "Jane",
-        "last_name": "Doe",
-        "age": 25,
-        "city": "Chicago"
-    },
-    {
         "first_name": "Captain",
         "last_name": "America",
-        "age": "10",
+        "age": 10,
         "city": "LA"
+    },
+    {
+        "first_name": "black",
+        "last_name": "Widow",
+        "age": "38",
+        "city": "San Diego"
     }
 ]
