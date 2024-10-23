@@ -1,13 +1,17 @@
 import json
 
 def display_data():
-    with open('data.json', 'r') as file:
-        data = json.load(file)
-        for entry in data:
-            print(f"Name: {entry['name']}")
-            print(f"Age: {entry['age']}")
-            print(f"City: {entry['city']}")
-            print('---')
+    try:
+        with open('data.json', 'r') as file:
+            data = json.load(file)
+            for entry in data:
+                print(f"First Name: {entry['first_name']}")
+                print(f"Last Name: {entry['last_name']}")
+                print(f"Age: {entry['age']}")
+                print(f"City: {entry['city']}")
+                print('---')
+    except FileNotFoundError:
+        print("No data found. Please add some data first.")
 
 def add_data(data):
     with open('data.json', 'r') as file:
@@ -17,11 +21,13 @@ def add_data(data):
         json.dump(old_data, file, indent=4)
 
 def enter_data():
-    name = input("Enter name: ")
+    first_name = input("Enter first name: ")
+    last_name = input("Enter last name: ")
     age = input("Enter age: ")
     city = input("Enter city: ")
     data = {
-        'name': name,
+        'first_name': first_name,
+        'last_name': last_name,
         'age': age,
         'city': city
     }
